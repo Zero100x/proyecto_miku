@@ -1,103 +1,108 @@
-import Image from "next/image";
+import React from "react";
+import { Twitter, Facebook } from "lucide-react";
+import MikuLogo from "../components/MikuLogo";
+import NavBar from "../components/NavBar";
+import EventDetails from "../components/EventDetails";
+import PickUp from "../components/PickUp";
+import News from "../components/News";
 
-export default function Home() {
+const Index = () => {
+  // Removed useState and language state
+  const language = "JP"; // Using a constant instead
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <div className="min-h-screen bg-[#0a0a14] text-white overflow-x-hidden relative">
+      {/* Background Image */}
+      <div className="fixed inset-0 z-0">
+        <img 
+          src="/miku.png" 
+          alt="Hatsune Miku Background" 
+          className="w-full h-full object-cover opacity-75"
         />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a14] via-[#0a0a14]/70 to-transparent"></div>
+      </div>
+      
+      {/* Content - Everything with higher z-index */}
+      <div className="relative z-10">
+        {/* Header */}
+        <header className="relative w-full">
+          <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div>
+              <a href="/">
+                <img src="/miku.png" alt="Logo" className="h-8 hidden" />
+                <MikuLogo className="h-8 w-auto" />
+              </a>
+            </div>
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-4">
+                <a href="#" className="hover:text-pink-400 transition-colors">
+                  <Twitter size={18} />
+                </a>
+                <a href="#" className="hover:text-pink-400 transition-colors">
+                  <Facebook size={18} />
+                </a>
+                <a href="#" className="hover:text-pink-400 transition-colors">
+                  <span className="inline-block w-5 h-5 bg-white rounded-full overflow-hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-black">
+                      <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+                      <path d="M12 8v8M8 12h8"/>
+                    </svg>
+                  </span>
+                </a>
+              </div>
+              <button 
+                // Removed onClick handler that used setState
+                className="bg-pink-600 text-white text-xs px-3 py-1 rounded-sm hover:bg-pink-500 transition-colors"
+              >
+                LANGUAGE
+              </button>
+            </div>
+          </div>
+          
+          {/* Main Navigation */}
+          <NavBar />
+        </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        {/* Hero Section */}
+        <section className="relative py-16 md:py-24">
+          <div className="container mx-auto relative">
+            <div className="px-8 md:px-16">
+              <div className="max-w-md backdrop-blur-sm bg-black/30 p-6 rounded-lg border border-cyan-400/20 shadow-lg">
+                <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                  <span className="block text-white animate-glow">マジカル</span>
+                  <span className="block text-miku-teal animate-glow">ミライ2019</span>
+                </h1>
+                <p className="tracking-widest text-pink-500 text-xl md:text-2xl font-bold mb-6">
+                  HATSUNE MIKU · MAGICAL MIRAI
+                </p>
+                <p className="text-white/80 mb-4">
+                  Experience the magic of Hatsune Miku's annual concert event, bringing together fans from around the world.
+                </p>
+                <button className="bg-gradient-to-r from-miku-teal to-cyan-500 hover:from-miku-teal hover:to-cyan-400 text-white py-2 px-6 rounded transition-all duration-300 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-400/50">
+                  DISCOVER MORE
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Event Details */}
+        <EventDetails />
+
+        {/* Pick Up Section */}
+        <PickUp />
+
+        {/* News Section */}
+        <News />
+
+        {/* Footer */}
+        <footer className="py-4 px-6 text-xs text-center text-gray-400 border-t border-gray-800 backdrop-blur-sm bg-black/30">
+          <p>Illustration by KKEJ</p>
+          <p>© Crypton Future Media, INC. www.piapro.net All rights reserved.</p>
+        </footer>
+      </div>
     </div>
   );
-}
+};
+
+export default Index;
