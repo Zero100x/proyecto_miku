@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from "react";
 import { Twitter, Facebook } from "lucide-react";
 import MikuLogo from "../components/MikuLogo";
@@ -10,11 +11,16 @@ const Index = () => {
     <div className="min-h-screen bg-[#0a0a14] text-white overflow-x-hidden relative">
       {/* Background Image with Gradient Overlay */}
       <div className="fixed inset-0 z-0">
-        <img 
-          src="/miku.png" 
-          alt="Hatsune Miku Background" 
-          className="w-full h-full object-cover opacity-75"
-        />
+
+      <Image
+    src="/miku.png"
+    alt="Hatsune Miku Background"
+    fill
+    priority
+    quality={100}
+    className="object-cover" 
+  />
+
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a14] via-[#0a0a14]/70 to-transparent" />
       </div>
       
