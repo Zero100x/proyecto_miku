@@ -58,7 +58,7 @@ const Index = () => {
               HATSUNE MIKU · MAGICAL MIRAI
             </p>
             <p className="text-white/80 mb-4">
-              Experience the magic of Hatsune Miku's annual concert event.
+              Experience the magic of Hatsune Miku annual concert event.
             </p>
             <button className="bg-gradient-to-r from-cyan-400 to-cyan-500 hover:from-cyan-300 hover:to-cyan-400 text-white py-2 px-6 rounded transition-all duration-300 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-400/50">
               DISCOVER MORE
